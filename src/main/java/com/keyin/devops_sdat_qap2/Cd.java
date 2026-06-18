@@ -3,7 +3,7 @@ package com.keyin.devops_sdat_qap2;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 public class Cd
@@ -14,19 +14,23 @@ public class Cd
     private String albumName;
     private String artistName;
     private String trackListing;
+    private String genre;
+    private String Label;
     private String producerName;
-    private LocalDateTime ReleaseDate;
+    private LocalDate ReleaseDate;
 
     public Cd()
     {
 
     }
 
-    public Cd(String albumName, String artistName, String trackListing, String producerName, LocalDateTime ReleaseDate)
+    public Cd(String albumName, String artistName, String trackListing, String genre, String label, String producerName, LocalDate ReleaseDate)
     {
         this.albumName = albumName;
         this.artistName = artistName;
         this.trackListing = trackListing;
+        this.genre = genre;
+        this.Label = label;
         this.producerName = producerName;
         this.ReleaseDate = ReleaseDate;
     }
@@ -61,6 +65,26 @@ public class Cd
         this.trackListing = trackListing;
     }
 
+    public String getGenre()
+    {
+        return genre;
+    }
+
+    public void setGenre(String genre)
+    {
+        this.genre = genre;
+    }
+
+    public String getLabel()
+    {
+        return Label;
+    }
+
+    public void setLabel(String label)
+    {
+        Label = label;
+    }
+
     public String getProducerName()
     {
         return producerName;
@@ -71,12 +95,12 @@ public class Cd
         this.producerName = producerName;
     }
 
-    public LocalDateTime getReleaseDate()
+    public LocalDate getReleaseDate()
     {
         return ReleaseDate;
     }
 
-    public void setReleaseDate(LocalDateTime releaseDate)
+    public void setReleaseDate(LocalDate releaseDate)
     {
         ReleaseDate = releaseDate;
     }
