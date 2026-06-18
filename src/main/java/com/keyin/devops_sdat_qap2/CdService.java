@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -46,5 +47,26 @@ public class CdService
                 new Cd("Powerslave", "Iron Maiden", "1.Aces High, 2.2 Minutes to Midnight, 3.Losfer Words, 4.Flash of the Blade, 5.The Duellists, 6.Back in the Village, 7.Powerslave, 8.Rime of the Ancient Mariner", "Heavy metal", "Capitol Records", "Martin Birch", LocalDate.of(1984, 8, 6))
         );
         return cdRepository.saveAll(cds);
+    }
+
+    public Cd updateCde(Long id, Cd cd)
+    {
+        Optional<Cd> returnValue = cdRepository.findById(id);
+
+        if (returnValue.isPresent())
+        {
+            Cd cdToUpdate = returnValue.get();
+
+            cdToUpdate.setAlbumName(cd.getAlbumName());
+            cdToUpdate.setArtistName(cd.getArtistName());
+            cdToUpdate.setTrackListing(cd.getTrackListing());
+            cdToUpdate.setGenre(cd.getGenre());
+            cdToUpdate.setLabel(cd.getLabel());
+            cdToUpdate.setProducerName(cd.getProducerName());
+            cdToUpdate.setReleaseDate(cd.getReleaseDate());
+
+            return cdRepository.save(cdToUpdate);
+        }
+        return null;
     }
 }

@@ -5,7 +5,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/cd")
@@ -39,9 +41,24 @@ public class CdController
         return new ResponseEntity<>("Cd with id " + id +" has been deleted", HttpStatus.OK);
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Cd> updateCd(@PathVariable Long id, @RequestBody Cd cd)
+    {
+        Cd updatedCd = cdService.updateCde(id, cd);
+
+        if (updatedCd == null)
+        {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(updatedCd, HttpStatus.OK);
+    }
+
     @PostMapping("/seed")
     public ResponseEntity<List<Cd>> seedCds()
     {
         return new ResponseEntity<>(cdService.seedCds(), HttpStatus.CREATED);
     }
+
+
 }
