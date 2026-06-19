@@ -13,8 +13,11 @@ public class Cd
     private Long id;
     private String albumName;
     private String artistName;
+
+    @Column(columnDefinition = "TEXT")
     private String trackListing;
     private String genre;
+
     private String Label;
     private String producerName;
     private LocalDate ReleaseDate;
@@ -33,6 +36,11 @@ public class Cd
         this.Label = label;
         this.producerName = producerName;
         this.ReleaseDate = ReleaseDate;
+    }
+
+    public Long getId()
+    {
+        return id;
     }
 
     public String getAlbumName()

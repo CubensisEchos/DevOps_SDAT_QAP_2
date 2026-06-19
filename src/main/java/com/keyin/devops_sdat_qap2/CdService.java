@@ -26,7 +26,7 @@ public class CdService
 
     public Cd getCdById(Long id)
     {
-        return cdRepository.findById(id).get();
+        return cdRepository.findById(id).orElse(null);
     }
 
     public void deleteCdById(Long id)
