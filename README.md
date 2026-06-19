@@ -1,6 +1,6 @@
-##DevOps & SDAT QAP 2
+## DevOps & SDAT QAP 2
 
-#ScreenShots
+# ScreenShots
 
 Gett all Test
 <img width="2550" height="1389" alt="GetAllCdsTest" src="https://github.com/user-attachments/assets/e76d771f-bd06-4cbd-bc06-9b7bac23d134" />
