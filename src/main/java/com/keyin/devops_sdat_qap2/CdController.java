@@ -44,7 +44,7 @@ public class CdController
     @PutMapping("/update/{id}")
     public ResponseEntity<Cd> updateCd(@PathVariable Long id, @RequestBody Cd cd)
     {
-        Cd updatedCd = cdService.updateCde(id, cd);
+        Cd updatedCd = cdService.updateCd(id, cd);
 
         if (updatedCd == null)
         {
