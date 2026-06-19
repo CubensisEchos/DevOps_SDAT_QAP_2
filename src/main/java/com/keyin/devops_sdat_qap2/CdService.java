@@ -49,7 +49,7 @@ public class CdService
         return cdRepository.saveAll(cds);
     }
 
-    public Cd updateCde(Long id, Cd cd)
+    public Cd updateCd(Long id, Cd cd)
     {
         Optional<Cd> returnValue = cdRepository.findById(id);
 
